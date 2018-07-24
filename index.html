@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <meta charset="utf-8">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Get book information from ISBN/OCLC.</title>
+
+    <!-- Custom styles for this template -->
+    <link href="css/logo-nav.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://pbs.twimg.com/profile_images/926203337048956928/WzzbgUMO_400x400.jpg" width="45" height="45" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Get Information
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Not in use</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Not in use</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Also not in use</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav><!-- Nav bar -->
+
+    <div class="container"> <!-- Big scary header -->
+      <div class="container">
+        <h1 class="mt-1">.</h1>
+        <h1 class="mt-5">Get book information from ISBN/OCLC.</h1>
+      </div>
+    </div>
+
+  <div class="container"> <!-- Most of the body -->
+    <p></p>
+    <div class="form-group">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="isbnmode" autocomplete="off" checked> ISBN
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="oclcmode" autocomplete="off"> OCLC
+        </label>
+      </div>
+      <p></p>
+      <input type="text" class="form-control" id="input" aria-describedby="emailHelp" placeholder="Enter ID">
+      <div class="container">
+        <small id="description" class="form-text text-muted">Basically you type in the ISBN/OCLC of some book and Worldcat should get information on the latest version.</small>
+      </div>
+    </div>
+  <div class="form-group">
+  <button type="submit" class="btn btn-primary" id="subbutton">Submit</button>
+</div>
+  <div id="amazon"></div>
+
+
+<div id="Title" class="metadata"></div>
+<div id="Title2" class="metadata"></div>
+<div id="Author" class="metadata"></div>
+<div id="oclc" class="metadata"></div>
+<div id="isbbn" class="metadata"></div>
+<div id="Pub" class="metadata"></div>
+<div id="PubPlace" class="metadata"></div>
+<div id="PubYear" class="metadata"></div>
+<div id="Material" class="metadata"></div>
+<div id="Material2" class="metadata"></div>
+<div id="link" class="metadata"></div>
+
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+   <script src="node_modules/jquery/dist/jquery.min.js" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script>
+      require('./renderer.js')
+   </script>
+
+  <script>
+     if (window.module) module = window.module;
+  </script>
+
+  </body>
+
+</html>
