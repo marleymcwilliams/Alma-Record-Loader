@@ -77,10 +77,6 @@ function apcalloclc(oclc, check){ //All the crap submit does for an OCLC input
                   var Author = fields[i].subfield[0]._
                   $("#Author").html("<b>Author: </b>" + Author); }
 
-/*                if(fields[i].$.tag == 245){ //tag 245 encodes title
-                  var Title = fields[i].subfield[0]._
-                  $("#Title").html("<b>Title: </b>" + Title); }
-*/
 
                   $("#oclc").html("<b>OCLC: </b>" + oclc); //sending oclc to amazon.html
 
@@ -213,49 +209,7 @@ function mother(){
   console.log(information.title);
 }
 
-/*{
-  "owner": {
-    "value": "MAIN"
-  },
-  "type": {
-    "value": "PRINT_OT"
-  },
-  "vendor": {
-    "value": "MVEN"
-  },
-  "rush": false,
-  "price": {
-    "sum": "150.0",
-    "currency": {
-      "value": "USD"
-    }
-  },
-  "url": "",
-  "vendor_account": "MVEN",
-  "vendor_reference_number": "",
-  "po_number": "",
-  "invoice_reference": "",
-  "resource_metadata": {
-    "title": "The last love.",
-    "author": "",
-    "issn": null,
-    "isbn": "1234AA",
-    "publisher": "",
-    "publication_place": "",
-    "publication_year": "",
-    "vendor_title_number": ""
-  },
-  "reporting_code": "",
-  "base_status": "",
-  "access_provider": "",
-  "material_type": {
-    "value": "BOOK"
-  },
-  "fund_distribution": []
-} */
-
 function createjson(){
-
   var information = new Object();
     information.title = localStorage.getItem("Title");
     information.title2 = localStorage.getItem("Title2");
