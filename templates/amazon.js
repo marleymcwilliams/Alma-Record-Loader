@@ -1,9 +1,9 @@
 {
   "owner": {
-    "value": "MAIN"
+    "value": "Watzek"
   },
   "type": {
-    "value": "PRINT_OT"
+    "value": "PRINTED_BOOK_OT"
   },
   "vendor": {
     "value": "MVEN"
