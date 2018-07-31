@@ -6,7 +6,7 @@
     "value": "PRINTED_BOOK_OT"
   },
   "vendor": {
-    "value": "MVEN"
+    "value": "wamaz"
   },
   "rush": false,
   "price": {
@@ -16,7 +16,7 @@
     }
   },
   "url": "",
-  "vendor_account": "MVEN",
+  "vendor_account": "wamaz",
   "vendor_reference_number": "",
   "po_number": "",
   "invoice_reference": "",

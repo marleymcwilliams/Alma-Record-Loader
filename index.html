@@ -14,7 +14,7 @@
     <title>Get book information from ISBN/OCLC.</title>
 
     <!-- Custom styles for this template -->
-    <link href="css/logo-nav.css" rel="stylesheet">
+    <link href="logo-nav.css" rel="stylesheet">
 
   </head>
 
@@ -25,33 +25,11 @@
         <a class="navbar-brand" href="#">
           <img src="https://pbs.twimg.com/profile_images/926203337048956928/WzzbgUMO_400x400.jpg" width="45" height="45" alt="">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Get Information
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Not in use</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Not in use</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Also not in use</a>
-            </li>
-          </ul>
-        </div>
       </div>
     </nav><!-- Nav bar -->
 
     <div class="container"> <!-- Big scary header -->
       <div class="container">
-        <h1 class="mt-1">.</h1>
         <h1 class="mt-5">Get book information from ISBN/OCLC.</h1>
       </div>
     </div>
@@ -68,16 +46,18 @@
         </label>
       </div>
       <p></p>
+
+<div id="fundcode" class="metadata"></div>
+
+      <p></p>
       <input type="text" class="form-control" id="input" aria-describedby="emailHelp" placeholder="Enter ID">
-      <div class="container">
-        <small id="description" class="form-text text-muted">Basically you type in the ISBN/OCLC of some book and Worldcat should get information on the latest version.</small>
-      </div>
+      <p></p>
+      <input type="text" class="form-control" id="cost" aria-describedby="emailHelp" placeholder="Price">
+      <small id="description" class="form-text text-muted">Price is in USD. ID can be ISBN or OCLC depending on what is selected. When you're done, click "Submit".</small>
     </div>
   <div class="form-group">
   <button type="submit" class="btn btn-primary" id="subbutton">Submit</button>
 </div>
-  <div id="amazon"></div>
-
 
 <div id="Title" class="metadata"></div>
 <div id="Title2" class="metadata"></div>

@@ -1,6 +1,29 @@
 // This file is required by the index.html file and will
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
+$(document).ready(function(){
+    var request = require('request');
+  var url = 'https://api-eu.hosted.exlibrisgroup.com/almaws/v1/acq/funds';
+  var queryParams = '?' +  encodeURIComponent('limit') + '=' + encodeURIComponent('100')+ '&' +  encodeURIComponent('offset') + '=' + encodeURIComponent('0')+ '&' +  encodeURIComponent('library') + '=' + encodeURIComponent('Watzek')+ '&' +  encodeURIComponent('format') + '=' + encodeURIComponent('json')+ '&' +  encodeURIComponent('apikey') + '=' + encodeURIComponent('l7xxd4db206386cc41ddb45583cb2336aee6');
+  request({
+    url: url + queryParams,
+    method: 'GET'
+  }, function (error, response, body) {
+//    console.log('Status', response.statusCode);
+//    console.log('Headers', JSON.stringify(response.headers));
+    var body2 = JSON.parse(body);
+    console.dir(body2);
+    var select = "<select id='fundcode'>"
+      for (i = 0; i < body2.fund.length; ++i) {
+        var code = body2.fund[i].code
+        var name = body2.fund[i].name
+        var opt = "<option val='"+ code +"'>" + name + " " + "(" + code + ")" + "</option>"
+        select += opt
+      }
+    select += "</select>"
+    $("#fundcode").html(select);
+  });
+});
 
 $(document).ready(function() { //Sets max length to 13, 8
   if($('#isbnmode').is(':checked')) {
@@ -34,7 +57,7 @@ $("#subbutton").click(function() { //Clicking "Sub" button counts as submit
 
 $(document).keypress(function(e) { //Pressing "enter" key counts as submit
     if(e.which == 13) {
-      if ($('#input').is(':focus')) {
+      if ($('#input').is(':focus') || $('#cost').is(':focus')) {
         $("#subtutton").press();
       }
     }
@@ -204,8 +227,60 @@ function apcallisbn(isbn, check){ //All the crap submit does for an ISBN input
 
 function mother(){ //Main function which wraps everything together
   information = createjson();
-  var jsonString = JSON.stringify(information);
+/*  var jsonString = JSON.stringify(information);
   console.dir(JSON.parse(jsonString));
+*/
+  console.log(
+    {
+      "owner": {
+        "value": "Watzek"
+      },
+      "type": {
+        "value": "PRINTED_BOOK_OT"
+      },
+      "vendor": {
+        "value": "wamaz"
+      },
+      "rush": false,
+      "price": {
+        "sum": $('#cost').val(),
+        "currency": {
+          "value": "USD"
+        }
+      },
+      "url": information.link,
+      "vendor_account": "wamaz",
+      "vendor_reference_number": "",
+      "po_number": "",
+      "invoice_reference": "",
+      "resource_metadata": {
+        "title": information.title,
+        "author": information.author,
+        "issn": null,
+        "isbn": information.isbn,
+        "publisher": information.publisher,
+        "publication_place": information.pubplace,
+        "publication_year": information.pubyear,
+        "vendor_title_number": ""
+      },
+      "reporting_code": "BOOK",
+      "base_status": "",
+      "access_provider": "",
+      "material_type": {
+        "value": "BOOK"
+      },
+      "fund_distributions": {
+        "fund_distribution": {
+          "fund_code": code,
+          "amount":{
+            "sum": $('#cost').val(),
+            "currency": {
+              "value": "USD"
+          }
+        }
+      }
+    }
+  });
   console.log(information.title);
 }
 
