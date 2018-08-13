@@ -9,27 +9,22 @@ $(document).ready(function(){
     url: url + queryParams,
     method: 'GET'
   }, function (error, response, body) {
-//    console.log('Status', response.statusCode);
-//    console.log('Headers', JSON.stringify(response.headers));
     var body2 = JSON.parse(body);
-    console.dir(body2);
-    var select = "<select id='fundcode'>"
+    //console.dir(body2);
+    var select = ""
       for (i = 0; i < body2.fund.length; ++i) {
         var code = body2.fund[i].code
         var name = body2.fund[i].name
-        var opt = "<option val='"+ code +"'>" + name + " " + "(" + code + ")" + "</option>"
+        var opt = "<option value='"+ code +"'>" + name + " " + "(" + code + ")" + "</option>"
         select += opt
       }
-    select += "</select>"
     $("#fundcode").html(select);
   });
-});
-
-$(document).ready(function() { //Sets max length to 13, 8
   if($('#isbnmode').is(':checked')) {
     $('#input').attr('maxlength','13'); }
   if($('#oclcmode').is(':checked')) {
-    $('#input').attr('maxlength','10'); }
+    $('#input').attr('maxlength','10');
+  }
 });
 
 $.fn.press = function() { //Submit function
@@ -271,7 +266,7 @@ function mother(){ //Main function which wraps everything together
       },
       "fund_distributions": {
         "fund_distribution": {
-          "fund_code": code,
+          "fund_code": $("#fundcode").val(),
           "amount":{
             "sum": $('#cost').val(),
             "currency": {
