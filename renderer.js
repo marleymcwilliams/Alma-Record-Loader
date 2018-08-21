@@ -1,6 +1,8 @@
 // This file is required by the index.html file and will
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
+$.getScript("link_keys.js", function() {
+});
 
 $.fn.press = function() { //Submit function
 
@@ -36,7 +38,7 @@ $(document).keypress(function(e) { //Pressing "enter" key counts as submit
 function apcalloclc(oclc, check){ //Picking out information given OCLC input
   var request = require('request');
   var url = 'http://www.worldcat.org/webservices/catalog/content/' + oclc;
-  var queryParams = '?servicelevel=full&' +  encodeURIComponent('wskey') + '=' + encodeURIComponent('uwpGfFREPIyE38NK4wmJATF53xA1E2qMbIM2ksm1ZPfxtXGVWEccdDb8qb1oqjF2rC85WWC4mQpMahuZ');
+  var queryParams = '?servicelevel=full&' +  encodeURIComponent('wskey') + '=' + encodeURIComponent(key1);
 
   request({
       url: url + queryParams,
@@ -105,7 +107,7 @@ function apcallisbn(isbn, check){ //Picking out information given ISBN input
 
   var request = require('request');
   var url = 'http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q=' + isbn;
-  var queryParams = '&' +  encodeURIComponent('wskey') + '=' + encodeURIComponent('uwpGfFREPIyE38NK4wmJATF53xA1E2qMbIM2ksm1ZPfxtXGVWEccdDb8qb1oqjF2rC85WWC4mQpMahuZ');
+  var queryParams = '&' +  encodeURIComponent('wskey') + '=' + encodeURIComponent(key1);
 
   request({
       url: url + queryParams,
@@ -121,7 +123,11 @@ function apcallisbn(isbn, check){ //Picking out information given ISBN input
 
           $("#failureISBN").css("display", "inline");
 
+          console.log("you fail");
+
         }else{
+
+          console.log("you succeed!");
 
           fields = result.feed.entry[result.feed.entry.length - 1]
 
@@ -218,7 +224,7 @@ var almastring =
 function genesis(x){ //Sends JSON string to alma
   var request = require('request');
   var url = 'https://api-eu.hosted.exlibrisgroup.com/almaws/v1/acq/po-lines';
-  var queryParams = '?' +  encodeURIComponent('apikey') + '=' + encodeURIComponent('l7xxd4db206386cc41ddb45583cb2336aee6');
+  var queryParams = '?' +  encodeURIComponent('apikey') + '=' + encodeURIComponent(key2);
   request({
       url: url + queryParams,
       body: x,
