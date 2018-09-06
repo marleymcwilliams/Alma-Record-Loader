@@ -123,11 +123,7 @@ function apcallisbn(isbn, check){ //Picking out information given ISBN input
 
           $("#failureISBN").css("display", "inline");
 
-          console.log("you fail");
-
         }else{
-
-          console.log("you succeed!");
 
           fields = result.feed.entry[result.feed.entry.length - 1]
 
@@ -213,10 +209,7 @@ var almastring =
   };
   console.dir(almastring);
 
-  var almastring2 = JSON.stringify(almastring);
-  $("#almajson").html("<b>JSON String: </b>" + almastring2);
-
-  genesis(almastring2);
+  genesis(JSON.stringify(almastring));
 
   console.log(localStorage.getItem("Title"));
 }
